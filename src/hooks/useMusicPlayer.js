@@ -7,8 +7,6 @@ const useMusicPlayer = () => {
   const [state, setState] = useContext(MusicContext);
 
   const togglePlay = () => {
-    console.log("currently playing: ", state.isPlaying);
-    console.table(state);
     if (state.isPlaying) {
       state.audioPlayer.pause();
       setState({ ...state, isPlaying: false });
@@ -19,7 +17,6 @@ const useMusicPlayer = () => {
   };
 
   const playTrack = (index) => {
-    console.log(index, state.currentTrackIndex);
     if (index === state.currentTrackIndex) {
       togglePlay();
     } else {
