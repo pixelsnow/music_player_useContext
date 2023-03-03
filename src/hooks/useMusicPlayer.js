@@ -8,6 +8,7 @@ const useMusicPlayer = () => {
 
   const togglePlay = () => {
     console.log("currently playing: ", state.isPlaying);
+    console.table(state);
     if (state.isPlaying) {
       state.audioPlayer.pause();
       setState({ ...state, isPlaying: false });
@@ -20,10 +21,8 @@ const useMusicPlayer = () => {
   const playTrack = (index) => {
     console.log(index, state.currentTrackIndex);
     if (index === state.currentTrackIndex) {
-      console.log("toggling");
       togglePlay();
     } else {
-      console.log("playing");
       // If the state doesn't exist, useContext will create the state keys, but the value will still be null
       state.audioPlayer.pause();
       state.audioPlayer = new Audio(state.tracks[index].file);

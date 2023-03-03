@@ -5,9 +5,9 @@ import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
 const TrackList = () => {
   const music = useMusicPlayer();
   return (
-    <>
+    <div className="tracklist">
       {music.trackList.map((track, index) => (
-        <div>
+        <div key={index} className="track">
           <button onClick={() => music.playTrack(index)}>
             {music.isPlaying && music.currentTrackIndex === index ? (
               <FontAwesomeIcon icon={faPause} />
@@ -15,10 +15,10 @@ const TrackList = () => {
               <FontAwesomeIcon icon={faPlay} />
             )}
           </button>
-          <div>Track playing: {track.name}</div>
+          <div>{track.name}</div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
